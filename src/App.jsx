@@ -10,9 +10,12 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ResumeButton from './components/ResumeButton';
 
+import MatrixBackground from './components/MatrixBackground';
+
 function App() {
     return (
         <div className="app">
+            <MatrixBackground />
             <Navbar />
             <Hero />
             <About />
