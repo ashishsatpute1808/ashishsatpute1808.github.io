@@ -25,96 +25,63 @@ const Experience = () => {
   return (
     <section id="experience" className="section">
       <div className="container">
-        <h2 className="section-title">Work Experience</h2>
-        <div className="timeline">
+        <h2 className="section-title">&gt; Execute_History_Log</h2>
+        <div className="terminal-timeline">
           {experiences.map((exp, index) => (
-            <div key={index} className="timeline-item">
-              <div className="timeline-dot"></div>
-              <div className="timeline-content">
-                <div className="timeline-date">{exp.period}</div>
-                <h3 className="timeline-role">{exp.role}</h3>
-                <h4 className="timeline-company">{exp.company}</h4>
-                <p>{exp.description}</p>
+            <div key={index} className="log-entry">
+              <div className="log-marker">&gt;</div>
+              <div className="log-content">
+                <div className="log-header">
+                  <span className="log-time">[{exp.period}]</span>
+                  <h3 className="log-role">{exp.role} @ {exp.company}</h3>
+                </div>
+                <p className="log-desc">{exp.description}</p>
               </div>
             </div>
           ))}
         </div>
       </div>
       <style>{`
-        .timeline {
-          position: relative;
-          max-width: 800px;
-          margin: 0 auto;
+        .terminal-timeline {
+          border-left: 2px dashed var(--border-color);
+          margin-left: 1rem;
+          padding-top: 1rem;
         }
-        .timeline::before {
-          content: '';
-          position: absolute;
-          left: 0;
-          top: 0;
-          height: 100%;
-          width: 2px;
-          background: var(--border-color);
-        }
-        .timeline-item {
+
+        .log-entry {
           position: relative;
           padding-left: 2rem;
-          margin-bottom: 3rem;
-        }
-        .timeline-dot {
-          position: absolute;
-          left: -6px;
-          top: 0;
-          width: 14px;
-          height: 14px;
-          border-radius: 50%;
-          background: var(--accent-primary);
-          box-shadow: 0 0 10px var(--accent-glow);
-        }
-        .timeline-date {
-          color: var(--accent-primary);
-          font-weight: 600;
-          margin-bottom: 0.5rem;
-          font-size: 0.9rem;
-        }
-        .timeline-role {
-          font-size: 1.5rem;
-          color: var(--text-primary);
-          margin-bottom: 0.25rem;
-        }
-        .timeline-company {
-          font-size: 1.1rem;
-          color: var(--text-secondary);
-          margin-bottom: 1rem;
-        }
-        .timeline-content p {
-          color: var(--text-secondary);
+          margin-bottom: 4rem;
         }
         
-        @media (min-width: 768px) {
-          .timeline::before {
-             left: 50%;
-             transform: translateX(-50%);
-          }
-           .timeline-item {
-             width: 50%;
-             padding-left: 0;
-             margin-bottom: 4rem;
-           }
-           .timeline-item:nth-child(odd) {
-             padding-right: 3rem;
-             text-align: right;
-           }
-           .timeline-item:nth-child(even) {
-             margin-left: 50%;
-             padding-left: 3rem;
-           }
-           .timeline-item:nth-child(odd) .timeline-dot {
-             left: auto;
-             right: -7px;
-           }
-           .timeline-item:nth-child(even) .timeline-dot {
-             left: -7px;
-           }
+        .log-marker {
+          position: absolute;
+          left: -0.65rem;
+          top: 0;
+          background: var(--bg-primary);
+          color: var(--accent-primary);
+          font-weight: bold;
+        }
+
+        .log-header {
+          margin-bottom: 0.5rem;
+        }
+
+        .log-time {
+          color: var(--text-secondary);
+          font-size: 0.9rem;
+          display: block;
+          margin-bottom: 0.25rem;
+        }
+
+        .log-role {
+          color: var(--text-primary);
+          font-size: 1.25rem;
+        }
+
+        .log-desc {
+          color: var(--text-secondary);
+          max-width: 700px;
         }
       `}</style>
     </section>

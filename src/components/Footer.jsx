@@ -1,32 +1,32 @@
 import React from 'react';
-import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 
 const Footer = () => {
     return (
         <footer className="footer">
             <div className="container footer-content">
                 <div className="footer-section">
-                    <h3>Ashish.Dev</h3>
-                    <p>Building digital experiences with passion and precision.</p>
+                    <h3>Ashish.Dev_</h3>
+                    <p>-- End of Line --</p>
                 </div>
 
                 <div className="footer-section">
-                    <h4>Socials</h4>
+                    <h4>Connect:</h4>
                     <div className="footer-socials">
                         <a href="https://github.com" target="_blank" rel="noopener noreferrer"><Github size={20} /></a>
                         <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><Linkedin size={20} /></a>
-                        <a href="mailto:contact@ashish.dev"><Mail size={20} /></a>
+                        <a href="mailto:ashishsatpute1808@gmail.com"><Mail size={20} /></a>
                     </div>
                 </div>
             </div>
             <div className="footer-bottom">
-                <p>&copy; {new Date().getFullYear()} Ashish.Dev. All rights reserved.</p>
+                <p>System.out.println("&copy; {new Date().getFullYear()} Ashish.Dev");</p>
             </div>
 
             <style>{`
         .footer {
           background: var(--bg-secondary);
-          padding: 4rem 0 2rem;
+          padding: 3rem 0 1.5rem;
           margin-top: 4rem;
           border-top: 1px solid var(--border-color);
         }
@@ -40,18 +40,19 @@ const Footer = () => {
 
         .footer-section h3 {
           font-size: 1.5rem;
-          margin-bottom: 1rem;
+          margin-bottom: 0.5rem;
           color: var(--text-primary);
         }
 
         .footer-section h4 {
-          font-size: 1.1rem;
+          font-size: 1rem;
           margin-bottom: 1rem;
           color: var(--text-primary);
         }
 
         .footer-section p {
           color: var(--text-secondary);
+          font-family: monospace;
         }
 
         .footer-socials {
@@ -70,8 +71,8 @@ const Footer = () => {
 
         .footer-bottom {
           text-align: center;
-          padding-top: 2rem;
-          border-top: 1px solid rgba(255,255,255,0.05);
+          padding-top: 1.5rem;
+          border-top: 1px dashed var(--border-color);
           color: var(--text-secondary);
           font-size: 0.9rem;
         }

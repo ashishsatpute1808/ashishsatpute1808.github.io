@@ -1,38 +1,43 @@
 import React from 'react';
-import { FileText, Download } from 'lucide-react';
+import { FileText } from 'lucide-react';
 
 const ResumeButton = () => {
-    // Placeholder file content is handled by link href="path" but here we might prompt user
-    return (
-        <>
-            <a href="/resume.pdf" download className="resume-btn" aria-label="Download Resume">
-                <FileText size={24} />
-            </a>
-            <style>{`
+  return (
+    <>
+      <a href="/resume.pdf" download className="resume-btn" aria-label="Download Resume" title="Download CV">
+        <span className="btn-text">GET_CV</span> <FileText size={20} />
+      </a>
+      <style>{`
         .resume-btn {
           position: fixed;
           bottom: 2rem;
           right: 2rem;
-          background: var(--accent-primary);
-          color: white;
-          width: 60px;
-          height: 60px;
-          border-radius: 50%;
+          background: var(--bg-primary);
+          color: var(--accent-primary);
+          border: 1px solid var(--accent-primary);
+          padding: 0.75rem 1rem;
           display: flex;
+          gap: 0.5rem;
           justify-content: center;
           align-items: center;
-          box-shadow: 0 4px 14px var(--accent-glow);
+          box-shadow: 4px 4px 0px var(--text-secondary);
           z-index: 100;
-          transition: var(--transition-normal);
+          transition: var(--transition-fast);
           cursor: pointer;
+          text-decoration: none;
+          font-weight: bold;
         }
         .resume-btn:hover {
-          transform: scale(1.1);
-          box-shadow: 0 6px 20px var(--accent-glow);
+          transform: translate(2px, 2px);
+          box-shadow: 2px 2px 0px var(--text-secondary);
+        }
+        .resume-btn:active {
+           transform: translate(4px, 4px);
+           box-shadow: none;
         }
       `}</style>
-        </>
-    );
+    </>
+  );
 };
 
 export default ResumeButton;

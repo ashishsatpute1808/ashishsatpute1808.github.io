@@ -5,52 +5,63 @@ const Contact = () => {
   return (
     <section id="contact" className="section">
       <div className="container contact-wrapper">
-        <h2 className="section-title">Get In Touch</h2>
+        <h2 className="section-title">&gt; sudo ./send_message</h2>
         <p className="contact-subtitle">
-          Have a project in mind or just want to say hi? I'd love to hear from you.
+          # Establishing secure connection...
+          <br />
+          # Ready to receive transmission.
         </p>
 
         <div className="contact-content">
           {/* Contact Info Cards */}
           <div className="contact-info">
             <div className="info-card">
-              <Mail className="info-icon" size={24} />
+              <span className="card-bracket">[</span>
+              <Mail className="info-icon" size={20} />
               <div>
-                <h3>Email</h3>
+                <h3>Email:</h3>
                 <a href="mailto:ashishsatpute1808@gmail.com">ashishsatpute1808@gmail.com</a>
               </div>
+              <span className="card-bracket">]</span>
             </div>
 
             <div className="info-card">
-              <Phone className="info-icon" size={24} />
+              <span className="card-bracket">[</span>
+              <Phone className="info-icon" size={20} />
               <div>
-                <h3>Phone</h3>
+                <h3>Phone:</h3>
                 <a href="tel:+919284315037">+91 9284315037</a>
               </div>
+              <span className="card-bracket">]</span>
             </div>
 
             <div className="info-card">
-              <MapPin className="info-icon" size={24} />
+              <span className="card-bracket">[</span>
+              <MapPin className="info-icon" size={20} />
               <div>
-                <h3>Location</h3>
+                <h3>Location:</h3>
                 <p>Pune, Maharashtra</p>
               </div>
+              <span className="card-bracket">]</span>
             </div>
           </div>
 
           {/* Contact Form */}
           <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
             <div className="form-group">
-              <input type="text" placeholder="Your Name" />
+              <span className="input-prompt">&gt;</span>
+              <input type="text" placeholder="Enter_Name" />
             </div>
             <div className="form-group">
-              <input type="email" placeholder="Your Email" />
+              <span className="input-prompt">&gt;</span>
+              <input type="email" placeholder="Enter_Email_Address" />
             </div>
             <div className="form-group">
-              <textarea rows="5" placeholder="Your Message"></textarea>
+              <span className="input-prompt">&gt;</span>
+              <textarea rows="5" placeholder="Enter_Message_Content..."></textarea>
             </div>
             <button type="submit" className="btn btn-primary">
-              Send Message <Send size={18} />
+              EXECUTE_SEND <Send size={16} />
             </button>
           </form>
         </div>
@@ -65,7 +76,8 @@ const Contact = () => {
           text-align: center;
           color: var(--text-secondary);
           margin-bottom: 4rem;
-          font-size: 1.1rem;
+          font-family: var(--font-main);
+          opacity: 0.8;
         }
         .contact-content {
           display: grid;
@@ -87,19 +99,16 @@ const Contact = () => {
         }
 
         .info-card {
-          display: flex;
-          align-items: center;
-          gap: 1rem;
-          padding: 1.5rem;
-          background: rgba(255, 255, 255, 0.03);
-          border-radius: 12px;
-          border: 1px solid var(--border-color);
-          transition: var(--transition-fast);
+           display: flex;
+           align-items: center;
+           gap: 1rem;
+           color: var(--text-primary);
         }
-
-        .info-card:hover {
-          border-color: var(--accent-primary);
-          background: rgba(255, 255, 255, 0.05);
+        
+        .card-bracket {
+           color: var(--accent-primary);
+           font-size: 1.5rem;
+           font-weight: 300;
         }
 
         .info-icon {
@@ -108,19 +117,20 @@ const Contact = () => {
         }
 
         .info-card h3 {
-          font-size: 0.9rem;
+          font-size: 0.8rem;
           color: var(--text-secondary);
-          margin-bottom: 0.25rem;
+          text-transform: uppercase;
+          margin-bottom: 0.2rem;
         }
 
         .info-card a, .info-card p {
           color: var(--text-primary);
           font-size: 1rem;
           text-decoration: none;
-          font-weight: 500;
         }
 
         .info-card a:hover {
+          text-decoration: underline;
           color: var(--accent-primary);
         }
 
@@ -129,28 +139,53 @@ const Contact = () => {
           flex-direction: column;
           gap: 1.5rem;
         }
+        
+        .form-group {
+           position: relative;
+           display: flex;
+           align-items: flex-start;
+           gap: 0.5rem;
+        }
+        
+        .input-prompt {
+           color: var(--accent-primary);
+           padding-top: 1rem;
+           font-weight: bold;
+        }
+
         .form-group input,
         .form-group textarea {
           width: 100%;
           padding: 1rem;
-          background: rgba(255, 255, 255, 0.05);
+          background: var(--bg-card);
           border: 1px solid var(--border-color);
-          border-radius: 8px;
+          border-radius: 0;
           color: var(--text-primary);
-          font-family: inherit;
+          font-family: var(--font-main);
           transition: var(--transition-fast);
         }
         .form-group input:focus,
         .form-group textarea:focus {
           outline: none;
           border-color: var(--accent-primary);
-          background: rgba(255, 255, 255, 0.08);
+          background: rgba(0, 255, 65, 0.05);
         }
         button[type="submit"] {
-          border: none;
-          align-self: flex-start;
+          border: 1px solid var(--accent-primary);
+          background: transparent;
+          color: var(--accent-primary);
+          padding: 1rem 2rem;
+          font-family: var(--font-main);
+          font-weight: bold;
           cursor: pointer;
-          font-size: 1rem;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          transition: var(--transition-fast);
+        }
+        button[type="submit"]:hover {
+           background: var(--accent-primary);
+           color: var(--bg-primary);
         }
       `}</style>
     </section>

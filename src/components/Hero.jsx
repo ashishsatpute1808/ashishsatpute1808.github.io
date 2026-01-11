@@ -1,166 +1,150 @@
-import React from 'react';
-import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ArrowRight, Github, Linkedin, Mail, Terminal } from 'lucide-react';
 
 const Hero = () => {
+    const [text, setText] = useState('');
+    const fullText = "Ashish Satpute";
+
+    useEffect(() => {
+        let index = 0;
+        const interval = setInterval(() => {
+            setText(fullText.substring(0, index));
+            index++;
+            if (index > fullText.length) clearInterval(interval);
+        }, 150);
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <section id="home" className="hero">
-            <div className="hero-background">
-                <div className="blob blob-1"></div>
-                <div className="blob blob-2"></div>
-            </div>
-
             <div className="container hero-content">
-                <h2 className="greeting">Hello, I'm</h2>
-                <h1 className="name">Ashish Satpute</h1>
-                <h3 className="role">.NET Developer | Full Stack Engineer</h3>
-                <p className="description">
-                    Results-driven developer with 3+ years of experience in building scalable web applications.
-                    Proficient in C#, ASP.NET Core, Angular, and modern cloud technologies.
-                </p>
+                <p className="prompt"><span className="path">C:\Users\Visitor&gt;</span> whoami</p>
+
+                <div className="response-block">
+                    <h2 className="greeting">&gt; Hello, I'm</h2>
+                    <h1 className="name">
+                        {text}<span className="cursor">_</span>
+                    </h1>
+
+                    <div className="role-box">
+                        <span className="bracket">[</span>
+                        <span className="role-text">.NET Developer | Full Stack Engineer</span>
+                        <span className="bracket">]</span>
+                    </div>
+
+                    <p className="description">
+                        &gt; Results-driven developer with 3+ years of experience in building scalable web applications.
+                        &gt; Proficient in C#, ASP.NET Core, Angular, and modern cloud technologies.
+                    </p>
+                </div>
 
                 <div className="cta-group">
                     <a href="#projects" className="btn btn-primary">
-                        View Projects <ArrowRight size={20} />
+                        ./view_projects.exe
                     </a>
                     <a href="#contact" className="btn btn-secondary">
-                        <Mail size={20} /> Contact Me
+                        ./contact_me.sh
                     </a>
                 </div>
 
                 <div className="social-links">
                     <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="social-icon">
-                        <Github size={24} />
+                        <Github size={20} />
                     </a>
                     <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-icon">
-                        <Linkedin size={24} />
+                        <Linkedin size={20} />
                     </a>
                 </div>
             </div>
 
             <style>{`
         .hero {
-          position: relative;
           min-height: 100vh;
           display: flex;
           align-items: center;
-          padding-top: 80px; /* offset for navbar */
-          overflow: hidden;
+          padding-top: 60px;
         }
 
-        .hero-background {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          z-index: -1;
+        .prompt {
+          font-family: var(--font-main);
+          color: var(--text-primary);
+          margin-bottom: 2rem;
+          font-size: 1.1rem;
         }
 
-        .blob {
-          position: absolute;
-          filter: blur(80px);
-          opacity: 0.4;
-          animation: float 10s infinite ease-in-out;
+        .path {
+          color: var(--text-secondary);
         }
 
-        .blob-1 {
-          top: -10%;
-          left: -10%;
-          width: 500px;
-          height: 500px;
-          background: purple;
-          animation-delay: 0s;
-        }
-
-        .blob-2 {
-          bottom: -10%;
-          right: -10%;
-          width: 400px;
-          height: 400px;
-          background: blue;
-          animation-delay: 5s;
-        }
-
-        @keyframes float {
-          0% { transform: translate(0, 0) scale(1); }
-          50% { transform: translate(30px, -50px) scale(1.1); }
-          100% { transform: translate(0, 0) scale(1); }
-        }
-
-        .hero-content {
-          position: relative;
-          z-index: 1;
-          max-width: 800px;
+        .response-block {
+          border-left: 2px solid var(--border-color);
+          padding-left: 1.5rem;
+          margin-bottom: 2rem;
         }
 
         .greeting {
-          color: var(--accent-primary);
-          font-size: 1.25rem;
-          font-weight: 600;
+          color: var(--text-secondary);
+          font-size: 1rem;
           margin-bottom: 0.5rem;
         }
 
         .name {
-          font-size: 4rem;
-          font-weight: 800;
-          line-height: 1.1;
-          margin-bottom: 0.5rem;
-          background: linear-gradient(to right, #fff, #aaa);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
+          font-size: 3.5rem;
+          font-weight: 700;
+          margin-bottom: 1rem;
+          letter-spacing: -2px;
+          text-transform: uppercase;
         }
 
-        .role {
-          font-size: 2rem;
-          color: var(--text-secondary);
+        .cursor {
+          animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0; }
+        }
+
+        .role-box {
           margin-bottom: 1.5rem;
+          font-size: 1.25rem;
+          color: var(--text-primary);
+        }
+
+        .bracket {
+          color: var(--text-secondary);
+          margin: 0 0.5rem;
         }
 
         .description {
-          font-size: 1.125rem;
+          font-size: 1rem;
           color: var(--text-secondary);
           max-width: 600px;
-          margin-bottom: 2.5rem;
+          line-height: 1.8;
         }
 
         .cta-group {
           display: flex;
-          gap: 1rem;
+          gap: 1.5rem;
           margin-bottom: 3rem;
-          flex-wrap: wrap;
         }
 
         .btn {
-          display: inline-flex;
-          align-items: center;
-          gap: 0.5rem;
+          display: inline-block;
           padding: 0.75rem 1.5rem;
-          border-radius: 8px;
-          font-weight: 600;
+          font-family: var(--font-main);
+          font-weight: 700;
           text-decoration: none;
           transition: var(--transition-fast);
+          border: 1px solid var(--accent-primary);
+          background: transparent;
+          color: var(--accent-primary);
         }
 
-        .btn-primary {
+        .btn:hover {
           background: var(--accent-primary);
-          color: white;
-          box-shadow: 0 4px 14px var(--accent-glow);
-        }
-
-        .btn-primary:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 6px 20px var(--accent-glow);
-        }
-
-        .btn-secondary {
-          background: rgba(255, 255, 255, 0.05);
-          color: var(--text-primary);
-          border: 1px solid var(--border-color);
-        }
-
-        .btn-secondary:hover {
-          background: rgba(255, 255, 255, 0.1);
-          transform: translateY(-2px);
+          color: var(--bg-primary);
+          box-shadow: 0 0 15px var(--accent-glow);
         }
 
         .social-links {
@@ -175,15 +159,19 @@ const Hero = () => {
 
         .social-icon:hover {
           color: var(--accent-primary);
-          transform: translateY(-3px);
         }
 
         @media (max-width: 768px) {
           .name {
-            font-size: 3rem;
+            font-size: 2.5rem;
           }
-          .role {
-            font-size: 1.5rem;
+          .btn {
+            width: 100%;
+            text-align: center;
+          }
+          .cta-group {
+            flex-direction: column;
+            gap: 1rem;
           }
         }
       `}</style>

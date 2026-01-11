@@ -18,53 +18,40 @@ const Certifications = () => {
   return (
     <section id="certifications" className="section">
       <div className="container">
-        <h2 className="section-title">Certifications</h2>
-        <div className="certs-grid">
+        <h2 className="section-title">&gt; Cat certifications.txt</h2>
+        <div className="certs-list">
           {certs.map((cert, index) => (
-            <div key={index} className="cert-card">
-              <Award className="cert-icon" size={32} />
-              <div>
-                <h3 className="cert-name">{cert.name}</h3>
-                <p className="cert-issuer">{cert.issuer} • {cert.date}</p>
-              </div>
+            <div key={index} className="cert-item">
+              <span className="line-prefix">root@ashish:~/certs#</span>
+              <span className="cert-text"> Verified: {cert.name} </span>
+              <span className="cert-meta">({cert.issuer}, {cert.date})</span>
             </div>
           ))}
         </div>
       </div>
       <style>{`
-        .certs-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 1.5rem;
-          max-width: 900px;
-          margin: 0 auto;
-        }
-        .cert-card {
-          display: flex;
-          align-items: center;
-          gap: 1rem;
-          background: rgba(255, 255, 255, 0.03);
-          padding: 1.5rem;
-          border-radius: 12px;
+        .certs-list {
+          background: var(--bg-card);
+          padding: 2rem;
           border: 1px solid var(--border-color);
-          transition: var(--transition-fast);
+          font-family: var(--font-main);
         }
-        .cert-card:hover {
-          background: rgba(255, 255, 255, 0.05);
-          border-color: var(--accent-primary);
+        .cert-item {
+          margin-bottom: 1rem;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+          align-items: center;
         }
-        .cert-icon {
+        .line-prefix {
           color: var(--accent-primary);
-          flex-shrink: 0;
         }
-        .cert-name {
+        .cert-text {
           color: var(--text-primary);
-          font-size: 1.1rem;
-          margin-bottom: 0.25rem;
+          font-weight: 600;
         }
-        .cert-issuer {
+        .cert-meta {
           color: var(--text-secondary);
-          font-size: 0.9rem;
         }
       `}</style>
     </section>
