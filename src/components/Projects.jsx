@@ -1,5 +1,6 @@
 import React from 'react';
 import { Github, ExternalLink } from 'lucide-react';
+import RevealOnScroll from './RevealOnScroll';
 
 const Projects = () => {
   const projects = [
@@ -31,44 +32,46 @@ const Projects = () => {
 
   return (
     <section id="projects" className="section">
-      <div className="container">
-        <h2 className="section-title">&gt; ls ./projects</h2>
-        <div className="projects-grid">
-          {projects.map((project) => (
-            <div key={project.id} className="project-card">
-              <div className="card-header">
-                <h3>{project.title}</h3>
-                <div className="card-actions">
-                  <div className="dot"></div>
-                  <div className="dot"></div>
-                </div>
-              </div>
-
-              <div className="card-body">
-                <p className="project-desc">{project.description}</p>
-
-                <div className="tech-stack">
-                  <p className="label">Stack:</p>
-                  <div className="tech-items">
-                    {project.tech.map((t, i) => (
-                      <span key={i} className="tech-item">[{t}]</span>
-                    ))}
+      <RevealOnScroll>
+        <div className="container">
+          <h2 className="section-title">&gt; ls ./projects<span className="cursor-blink"></span></h2>
+          <div className="projects-grid">
+            {projects.map((project) => (
+              <div key={project.id} className="project-card">
+                <div className="card-header">
+                  <h3>{project.title}</h3>
+                  <div className="card-actions">
+                    <div className="dot"></div>
+                    <div className="dot"></div>
                   </div>
                 </div>
 
-                <div className="project-links">
-                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="link-btn">
-                    <Github size={16} /> source_code
-                  </a>
-                  <a href={project.live} target="_blank" rel="noopener noreferrer" className="link-btn">
-                    <ExternalLink size={16} /> execute_demo
-                  </a>
+                <div className="card-body">
+                  <p className="project-desc">{project.description}</p>
+
+                  <div className="tech-stack">
+                    <p className="label">Stack:</p>
+                    <div className="tech-items">
+                      {project.tech.map((t, i) => (
+                        <span key={i} className="tech-item">[{t}]</span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="project-links">
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="link-btn">
+                      <Github size={16} /> source_code
+                    </a>
+                    <a href={project.live} target="_blank" rel="noopener noreferrer" className="link-btn">
+                      <ExternalLink size={16} /> execute_demo
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      </RevealOnScroll>
       <style>{`
         .projects-grid {
           display: grid;

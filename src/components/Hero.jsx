@@ -22,7 +22,7 @@ const Hero = () => {
 
                 <div className="response-block">
                     <h2 className="greeting">&gt; Hello, I'm</h2>
-                    <h1 className="name">
+                    <h1 className="name glitch" data-text={text}>
                         {text}<span className="cursor">_</span>
                     </h1>
 

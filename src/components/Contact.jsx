@@ -1,71 +1,74 @@
 import React from 'react';
 import { Mail, Send, Phone, MapPin } from 'lucide-react';
+import RevealOnScroll from './RevealOnScroll';
 
 const Contact = () => {
   return (
     <section id="contact" className="section">
-      <div className="container contact-wrapper">
-        <h2 className="section-title">&gt; sudo ./send_message</h2>
-        <p className="contact-subtitle">
-          # Establishing secure connection...
-          <br />
-          # Ready to receive transmission.
-        </p>
+      <RevealOnScroll>
+        <div className="container contact-wrapper">
+          <h2 className="section-title">&gt; sudo ./send_message<span className="cursor-blink"></span></h2>
+          <p className="contact-subtitle">
+            # Establishing secure connection...
+            <br />
+            # Ready to receive transmission.
+          </p>
 
-        <div className="contact-content">
-          {/* Contact Info Cards */}
-          <div className="contact-info">
-            <div className="info-card">
-              <span className="card-bracket">[</span>
-              <Mail className="info-icon" size={20} />
-              <div>
-                <h3>Email:</h3>
-                <a href="mailto:ashishsatpute1808@gmail.com">ashishsatpute1808@gmail.com</a>
+          <div className="contact-content">
+            {/* Contact Info Cards */}
+            <div className="contact-info">
+              <div className="info-card">
+                <span className="card-bracket">[</span>
+                <Mail className="info-icon" size={20} />
+                <div>
+                  <h3>Email:</h3>
+                  <a href="mailto:ashishsatpute1808@gmail.com">ashishsatpute1808@gmail.com</a>
+                </div>
+                <span className="card-bracket">]</span>
               </div>
-              <span className="card-bracket">]</span>
+
+              <div className="info-card">
+                <span className="card-bracket">[</span>
+                <Phone className="info-icon" size={20} />
+                <div>
+                  <h3>Phone:</h3>
+                  <a href="tel:+919284315037">+91 9284315037</a>
+                </div>
+                <span className="card-bracket">]</span>
+              </div>
+
+              <div className="info-card">
+                <span className="card-bracket">[</span>
+                <MapPin className="info-icon" size={20} />
+                <div>
+                  <h3>Location:</h3>
+                  <p>Pune, Maharashtra</p>
+                </div>
+                <span className="card-bracket">]</span>
+              </div>
             </div>
 
-            <div className="info-card">
-              <span className="card-bracket">[</span>
-              <Phone className="info-icon" size={20} />
-              <div>
-                <h3>Phone:</h3>
-                <a href="tel:+919284315037">+91 9284315037</a>
+            {/* Contact Form */}
+            <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+              <div className="form-group">
+                <span className="input-prompt">&gt;</span>
+                <input type="text" placeholder="Enter_Name" />
               </div>
-              <span className="card-bracket">]</span>
-            </div>
-
-            <div className="info-card">
-              <span className="card-bracket">[</span>
-              <MapPin className="info-icon" size={20} />
-              <div>
-                <h3>Location:</h3>
-                <p>Pune, Maharashtra</p>
+              <div className="form-group">
+                <span className="input-prompt">&gt;</span>
+                <input type="email" placeholder="Enter_Email_Address" />
               </div>
-              <span className="card-bracket">]</span>
-            </div>
+              <div className="form-group">
+                <span className="input-prompt">&gt;</span>
+                <textarea rows="5" placeholder="Enter_Message_Content..."></textarea>
+              </div>
+              <button type="submit" className="btn btn-primary">
+                EXECUTE_SEND <Send size={16} />
+              </button>
+            </form>
           </div>
-
-          {/* Contact Form */}
-          <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
-            <div className="form-group">
-              <span className="input-prompt">&gt;</span>
-              <input type="text" placeholder="Enter_Name" />
-            </div>
-            <div className="form-group">
-              <span className="input-prompt">&gt;</span>
-              <input type="email" placeholder="Enter_Email_Address" />
-            </div>
-            <div className="form-group">
-              <span className="input-prompt">&gt;</span>
-              <textarea rows="5" placeholder="Enter_Message_Content..."></textarea>
-            </div>
-            <button type="submit" className="btn btn-primary">
-              EXECUTE_SEND <Send size={16} />
-            </button>
-          </form>
         </div>
-      </div>
+      </RevealOnScroll>
 
       <style>{`
         .contact-wrapper {

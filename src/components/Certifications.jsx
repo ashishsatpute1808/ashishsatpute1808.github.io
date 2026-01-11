@@ -1,5 +1,6 @@
 import React from 'react';
 import { Award } from 'lucide-react';
+import RevealOnScroll from './RevealOnScroll';
 
 const Certifications = () => {
   const certs = [
@@ -17,18 +18,20 @@ const Certifications = () => {
 
   return (
     <section id="certifications" className="section">
-      <div className="container">
-        <h2 className="section-title">&gt; Cat certifications.txt</h2>
-        <div className="certs-list">
-          {certs.map((cert, index) => (
-            <div key={index} className="cert-item">
-              <span className="line-prefix">root@ashish:~/certs#</span>
-              <span className="cert-text"> Verified: {cert.name} </span>
-              <span className="cert-meta">({cert.issuer}, {cert.date})</span>
-            </div>
-          ))}
+      <RevealOnScroll>
+        <div className="container">
+          <h2 className="section-title">&gt; Cat certifications.txt<span className="cursor-blink"></span></h2>
+          <div className="certs-list">
+            {certs.map((cert, index) => (
+              <div key={index} className="cert-item">
+                <span className="line-prefix">root@ashish:~/certs#</span>
+                <span className="cert-text"> Verified: {cert.name} </span>
+                <span className="cert-meta">({cert.issuer}, {cert.date})</span>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      </RevealOnScroll>
       <style>{`
         .certs-list {
           background: var(--bg-card);

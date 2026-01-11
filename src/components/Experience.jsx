@@ -1,4 +1,5 @@
 import React from 'react';
+import RevealOnScroll from './RevealOnScroll';
 
 const Experience = () => {
   const experiences = [
@@ -24,23 +25,25 @@ const Experience = () => {
 
   return (
     <section id="experience" className="section">
-      <div className="container">
-        <h2 className="section-title">&gt; Execute_History_Log</h2>
-        <div className="terminal-timeline">
-          {experiences.map((exp, index) => (
-            <div key={index} className="log-entry">
-              <div className="log-marker">&gt;</div>
-              <div className="log-content">
-                <div className="log-header">
-                  <span className="log-time">[{exp.period}]</span>
-                  <h3 className="log-role">{exp.role} @ {exp.company}</h3>
+      <RevealOnScroll>
+        <div className="container">
+          <h2 className="section-title">&gt; Execute_History_Log<span className="cursor-blink"></span></h2>
+          <div className="terminal-timeline">
+            {experiences.map((exp, index) => (
+              <div key={index} className="log-entry">
+                <div className="log-marker">&gt;</div>
+                <div className="log-content">
+                  <div className="log-header">
+                    <span className="log-time">[{exp.period}]</span>
+                    <h3 className="log-role">{exp.role} @ {exp.company}</h3>
+                  </div>
+                  <p className="log-desc">{exp.description}</p>
                 </div>
-                <p className="log-desc">{exp.description}</p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      </RevealOnScroll>
       <style>{`
         .terminal-timeline {
           border-left: 2px dashed var(--border-color);

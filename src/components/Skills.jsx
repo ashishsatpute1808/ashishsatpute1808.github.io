@@ -1,4 +1,5 @@
 import React from 'react';
+import RevealOnScroll from './RevealOnScroll';
 
 const Skills = () => {
   const skills = [
@@ -11,21 +12,23 @@ const Skills = () => {
 
   return (
     <section id="skills" className="section">
-      <div className="container">
-        <h2 className="section-title">&gt; Skills_Inventory</h2>
-        <div className="skills-grid">
-          {skills.map((category, index) => (
-            <div key={index} className="skill-category">
-              <h3>./{category.category}</h3>
-              <div className="skill-tags">
-                {category.items.map((item, idx) => (
-                  <span key={idx} className="skill-tag">&lt;{item}/&gt;</span>
-                ))}
+      <RevealOnScroll>
+        <div className="container">
+          <h2 className="section-title">&gt; Skills_Inventory<span className="cursor-blink"></span></h2>
+          <div className="skills-grid">
+            {skills.map((category, index) => (
+              <div key={index} className="skill-category">
+                <h3>./{category.category}</h3>
+                <div className="skill-tags">
+                  {category.items.map((item, idx) => (
+                    <span key={idx} className="skill-tag">&lt;{item}/&gt;</span>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      </RevealOnScroll>
       <style>{`
         .section {
           padding: 6rem 0;

@@ -1,33 +1,36 @@
 import React from 'react';
+import RevealOnScroll from './RevealOnScroll';
 
 const About = () => {
     return (
         <section id="about" className="section">
-            <div className="container about-container">
-                <h2 className="section-title">&gt; About_Me</h2>
-                <div className="terminal-card">
-                    <div className="terminal-header">
-                        <div className="terminal-button red"></div>
-                        <div className="terminal-button yellow"></div>
-                        <div className="terminal-button green"></div>
-                        <span className="terminal-title">user_profile.txt</span>
-                    </div>
-                    <div className="about-content">
-                        <p className="comment"># Summary</p>
-                        <p>
-                            I am a results-driven .NET Developer with 3+ years of experience in building, maintaining, and deploying scalable web applications and APIs.
-                            Proficient in C#, ASP.NET Core, MVC, Web API, and modern front-end frameworks like Angular.
-                        </p>
-                        <br />
-                        <p className="comment"># Expertise</p>
-                        <p>
-                            My skillset includes full-stack development, database design, and integrating DevOps practices.
-                            I am adept at building clean, maintainable code and solving complex problems.
-                            Currently, I am leveraging cloud technologies and real-time monitoring tools like the ELK stack to deliver robust enterprise solutions.
-                        </p>
+            <RevealOnScroll>
+                <div className="container about-container">
+                    <h2 className="section-title">&gt; About_Me<span className="cursor-blink"></span></h2>
+                    <div className="terminal-card">
+                        <div className="terminal-header">
+                            <div className="terminal-button red"></div>
+                            <div className="terminal-button yellow"></div>
+                            <div className="terminal-button green"></div>
+                            <span className="terminal-title">user_profile.txt</span>
+                        </div>
+                        <div className="about-content">
+                            <p className="comment"># Summary</p>
+                            <p>
+                                I am a results-driven .NET Developer with 3+ years of experience in building, maintaining, and deploying scalable web applications and APIs.
+                                Proficient in C#, ASP.NET Core, MVC, Web API, and modern front-end frameworks like Angular.
+                            </p>
+                            <br />
+                            <p className="comment"># Expertise</p>
+                            <p>
+                                My skillset includes full-stack development, database design, and integrating DevOps practices.
+                                I am adept at building clean, maintainable code and solving complex problems.
+                                Currently, I am leveraging cloud technologies and real-time monitoring tools like the ELK stack to deliver robust enterprise solutions.
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </RevealOnScroll>
             <style>{`
         .section-title {
           font-size: 2rem;
