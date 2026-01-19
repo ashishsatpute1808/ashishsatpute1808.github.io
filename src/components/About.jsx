@@ -17,7 +17,7 @@ const About = () => {
                         <div className="about-content">
                             <p className="comment"># Summary</p>
                             <p>
-                                I am a results-driven .NET Developer with 3+ years of experience in building, maintaining, and deploying scalable web applications and APIs.
+                                I am a results-driven .NET Developer with 4+ years of experience in building, maintaining, and deploying scalable web applications and APIs.
                                 Proficient in C#, ASP.NET Core, MVC, Web API, and modern front-end frameworks like Angular.
                             </p>
                             <br />
